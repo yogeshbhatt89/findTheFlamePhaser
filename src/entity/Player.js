@@ -52,7 +52,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.play("jump");
     }
   }
-
+ 
   // Check which controller button is being pushed and execute movement & animation
   update(cursors, jumpSound, deathSound) {
     // << INSERT CODE HERE >>

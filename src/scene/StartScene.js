@@ -15,6 +15,8 @@ export default class StartScene extends Phaser.Scene {
     this.load.image("borderVertical", "assets/sprites/borderVertical.png");
     this.load.image("startScene", "assets/backgrounds/menuScreen.png");
     this.load.image("door", "assets/sprites/door.png");
+    this.load.audio("jump", "assets/audio/jump.wav");
+    this.load.audio("backgroundMusic", "assets/audio/backgroundMusic.mp3");
   }
   createAnimations() {
     this.anims.create({
@@ -80,9 +82,12 @@ export default class StartScene extends Phaser.Scene {
       this
     );
     this.cursors = this.input.keyboard.createCursorKeys();
+    this.jumpSound = this.sound.add("jump");
+    this.backgroundMusic = this.sound.add("backgroundMusic", 0.5, true);
+    this.backgroundMusic.play();
   }
 
   update(time, delta) {
-    this.player.update(this.cursors);
+    this.player.update(this.cursors, this.jumpSound);
   }
 }

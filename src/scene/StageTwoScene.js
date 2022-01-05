@@ -2,9 +2,9 @@ import Phaser from "phaser";
 import Flame from "../entity/Flame";
 import Ground from "../entity/Ground";
 import Player from "../entity/Player";
-export default class StageOneScene extends Phaser.Scene {
+export default class StageTwoScene extends Phaser.Scene {
   constructor() {
-    super("StageOneScene");
+    super("StageTwoScene");
   }
 
   preload() {
@@ -23,8 +23,8 @@ export default class StageOneScene extends Phaser.Scene {
     this.load.image("platform", "assets/sprites/platform.png");
 
     this.load.audio("jump", "assets/audio/jump.wav");
-    // this.load.audio("death", "assets/audio/death.wav");
-    // this.load.audio("backgroundMusic", "assets/audio/backgroundMusic.mp3");
+    this.load.audio("death", "assets/audio/death.wav");
+   
   }
 
   createBorderVertical(x, y) {
@@ -36,9 +36,9 @@ export default class StageOneScene extends Phaser.Scene {
   createPlatform(x, y) {
     this.groundGroupPlatform.create(x, y, "platform").setScale(0.55);
   }
-  // createSpikes(x, y) {
-  //   this.groundGroupSpikes.create(x, y, "spikes").setScale(0.3);
-  // }
+  createSpikes(x, y) {
+    this.groundGroupSpikes.create(x, y, "spikes").setScale(0.3);
+  }
   createFlames(x, y) {
     this.groupFlames.create(x, y, "flame").setScale(0.3);
   }
@@ -76,14 +76,13 @@ export default class StageOneScene extends Phaser.Scene {
   create() {
     this.createAnimations();
 
-    // this.add.image(-160, 0, "background").setOrigin(0).setScale(0.5);
-    this.player = new Player(this, 50, 568, "stickman").setScale(0.5);
+    this.player = new Player(this, 350, 570, "stickman").setScale(0.5);
     this.groupFlames = this.physics.add.group({
       classType: Flame,
       allowGravity: false,
       immovable: true,
     });
-    this.createFlames(50, 50);
+    this.createFlames(755, 550);
 
     this.groundGroupVertical = this.physics.add.group({
       classType: Ground,
@@ -106,30 +105,33 @@ export default class StageOneScene extends Phaser.Scene {
       allowGravity: false,
       immovable: true,
     });
-    this.createPlatform(200, 550);
-    this.createPlatform(450, 500);
-    this.createPlatform(800, 400);
+    this.createPlatform(600, 500);
+    this.createPlatform(100, 500);
+    this.createPlatform(350, 400);
     this.createPlatform(600, 300);
-    this.createPlatform(150, 300);
-    // this.createPlatform(0, 400);
-    this.createPlatform(150, 180);
-    // this.createPlatform(600, 200);
-    // this.createPlatform(500, 500);
+    this.createPlatform(100, 300);
+    this.createPlatform(100, 180);
+    this.createPlatform(465, 150);
+
     this.groundGroupSpikes = this.physics.add.group({
       classType: Ground,
       allowGravity: false,
       immovable: true,
     });
-    // this.createSpikes(700, 500);
-    // this.createSpikes(500, 500);
-    // this.createSpikes(430, 500);
-    // this.createSpikes(250, 500);
-    // this.createSpikes(700, 300);
-    // this.createSpikes(500, 300);
-    // this.createSpikes(400, 300);
-    // this.createSpikes(330, 300);
-    // this.createSpikes(250, 300);
-    // this.createSpikes(700, 150);
+    this.createSpikes(700, 600);
+    this.createSpikes(700, 550);
+    this.createSpikes(700, 500);
+    this.createSpikes(700, 450);
+    this.createSpikes(700, 400);
+    this.createSpikes(700, 350);
+    this.createSpikes(700, 300);
+    this.createSpikes(700, 250);
+    this.createSpikes(700, 200);
+    this.createSpikes(700, 150);
+    this.createSpikes(250, 450);
+    this.createSpikes(450, 450);
+    this.createSpikes(350, 300);
+
     this.physics.add.collider(this.player, this.groundGroupHorizontal);
     this.physics.add.collider(this.player, this.groundGroupVertical);
     this.physics.add.collider(this.player, this.groundGroupPlatform);
@@ -153,43 +155,26 @@ export default class StageOneScene extends Phaser.Scene {
 
     this.jumpSound = this.sound.add("jump");
 
-    // this.deathSound = this.sound.add("death");
-    // this.backgroundMusic = this.sound.add("backgroundMusic", 0.5, true);
-    // this.backgroundMusic.play();
+    this.deathSound = this.sound.add("death");
+
   }
 
-  // const backgroundMusic = this.sound.get("backgroundMusic");
-  // player.alive = false;
-  // }
-  // killPlayer(player) {
-  //   // if (this.player.alive) {
-  //   //   this.player.kill();
-  //   // }
+  killPlayer(player) {
+    const thisScene = this.scene.get("StageTwoScene");
+    player.alive = false;
+    setTimeout(function () {
+      player.alive = true;
 
-  //   const thisScene = this.scene.get("StageOneScene");
-  //   // this.player.destroy();
-  //   // if (player.alive === true) {
-  //   player.alive = false;
-  //   //   player.setActive(false);
-  //   //   player.setVisible(false);
-  //   setTimeout(function () {
-  //     // player.alive = true;
-  //     // player.setActive(true);
-  //     // player.setVisible(true);
-  //     // player.body = null;
-  //     // player.kill();
-  //     player.alive = true;
-  //     // backgroundMusic.stop();
-  //     thisScene.registry.destroy();
-  //     thisScene.events.off();
-  //     thisScene.scene.restart();
-  //   }, 100);
-  // }
+      thisScene.registry.destroy();
+      thisScene.events.off();
+      thisScene.scene.restart();
+    }, 100);
+  }
   gotFlame() {
-    this.scene.start("StageTwoScene");
+    this.scene.start("StageThreeScene");
   }
 
   update(time, delta) {
-    this.player.update(this.cursors, this.jumpSound);
+    this.player.update(this.cursors, this.jumpSound, this.deathSound);
   }
 }

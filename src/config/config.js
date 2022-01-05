@@ -1,5 +1,7 @@
 import Phaser from "phaser";
 import StageOneScene from "../scene/StageOneScene";
+import StageThreeScene from "../scene/StageThreeScene";
+import StageTwoScene from "../scene/StageTwoScene";
 import StartScene from "../scene/StartScene";
 import WinScene from "../scene/WinScene";
 export default {
@@ -18,5 +20,5 @@ export default {
       // debug: true,
     },
   },
-  scene: [StartScene, StageOneScene, WinScene],
+  scene: [StartScene, StageOneScene, StageTwoScene, StageThreeScene, WinScene],
 };
