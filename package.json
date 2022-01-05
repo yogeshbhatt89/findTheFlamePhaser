@@ -7,8 +7,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "npm run build && webpack-dev-server "
+    "start": "webpack-dev-server "
   },
   "repository": {
     "type": "git",
