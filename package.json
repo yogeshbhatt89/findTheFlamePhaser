@@ -7,19 +7,19 @@
     "node": "14.x"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server"
+       "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yogeshbhatt89/findTheFlamePhaser"
   },
   "homepage": "https://github.com/yogeshbhatt89/findTheFlamePhaser",
+  "dependencies": {
+    "phaser": "^3.55.2"
+  },
   "devDependencies": {
-    "phaser": "^3.55.2",
     "raw-loader": "^0.5.1",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.5"
-  },
-  "heroku-run-build-script": true
+  }
 }
