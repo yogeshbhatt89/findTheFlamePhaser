@@ -14,12 +14,6 @@
     "scripts": {
         "start": "webpack-dev-server"
     },
-    "version": "1.0.0",
-    "webkit": {},
-    "window": {
-        "height": 600,
-        "id": "FindTheFlame",
-        "title": "FindTheFlame",
-        "width": 800
-    }
+    "version": "1.0.0"
+
 }

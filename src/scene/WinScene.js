@@ -12,6 +12,7 @@ export default class WinScene extends Phaser.Scene {
     this.input.on(
       "pointerup",
       function () {
+        this.sound.removeByKey("backgroundMusic");
         this.scene.start("StartScene");
       },
       this

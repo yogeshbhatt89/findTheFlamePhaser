@@ -158,33 +158,6 @@ export default class StageOneScene extends Phaser.Scene {
     // this.backgroundMusic.play();
   }
 
-  // const backgroundMusic = this.sound.get("backgroundMusic");
-  // player.alive = false;
-  // }
-  // killPlayer(player) {
-  //   // if (this.player.alive) {
-  //   //   this.player.kill();
-  //   // }
-
-  //   const thisScene = this.scene.get("StageOneScene");
-  //   // this.player.destroy();
-  //   // if (player.alive === true) {
-  //   player.alive = false;
-  //   //   player.setActive(false);
-  //   //   player.setVisible(false);
-  //   setTimeout(function () {
-  //     // player.alive = true;
-  //     // player.setActive(true);
-  //     // player.setVisible(true);
-  //     // player.body = null;
-  //     // player.kill();
-  //     player.alive = true;
-  //     // backgroundMusic.stop();
-  //     thisScene.registry.destroy();
-  //     thisScene.events.off();
-  //     thisScene.scene.restart();
-  //   }, 100);
-  // }
   gotFlame() {
     this.scene.start("StageTwoScene");
   }
