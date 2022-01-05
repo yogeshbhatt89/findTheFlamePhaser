@@ -4,7 +4,7 @@
   "description": "A Phaser Platform game",
   "main": "src/index.js",
   "engines": {
-      "node": "14.x"
+    "node": "14.x"
   },
   "scripts": {
     "build": "webpack",
@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/yogeshbhatt89/findTheFlamePhaser",
   "devDependencies": {
-    "canvas": "^2.1.0",
+    "canvas": "^2.8.0",
     "phaser": "^3.55.2",
     "raw-loader": "^0.5.1",
     "webpack": "^3.12.0",
