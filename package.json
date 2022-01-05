@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "A Phaser Platform game",
   "main": "src/index.js",
-  "engines": {
-    "node": "14.x"
-  },
-  "scripts": {
+    "scripts": {
        "start": "webpack-dev-server"
   },
   "repository": {
