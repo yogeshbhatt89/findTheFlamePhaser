@@ -82,8 +82,12 @@ export default class StartScene extends Phaser.Scene {
       this
     );
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.jumpSound = this.sound.add("jump");
-    this.backgroundMusic = this.sound.add("backgroundMusic", 0.5, true);
+    this.jumpSound = this.sound.add("jump", { volume: 0.07 });
+    this.backgroundMusic = this.sound.add(
+      "backgroundMusic",
+      { volume: 0.07 },
+      true
+    );
     this.backgroundMusic.play();
   }
 

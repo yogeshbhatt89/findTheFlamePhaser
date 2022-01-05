@@ -152,9 +152,9 @@ export default class StageThreeScene extends Phaser.Scene {
     // using keyboard arrows Creating  cursors
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    this.jumpSound = this.sound.add("jump");
+    this.jumpSound = this.sound.add("jump", { volume: 0.07 });
 
-    this.deathSound = this.sound.add("death");
+    this.deathSound = this.sound.add("death", { volume: 0.07 });
   }
 
   killPlayer(player) {

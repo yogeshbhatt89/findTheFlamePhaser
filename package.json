@@ -7,19 +7,15 @@
     "devDependencies": {
         "raw-loader": "^0.5.1",
         "webpack": "^3.4.1",
-        "webpack-dev-server": "^2.11.0"
+        "webpack-dev-server": "^2.11.5"
     },
     "main": "src/index.js",
     "name": "findTheFlame",
     "scripts": {
-        "start": "webpack-dev-server"
+        "build": "webpack",
+        "start": "npm run build && webpack-dev-server --host=0.0.0.0 --port=$PORT --disable-host-check"
     },
     "version": "1.0.0",
-    "webkit": {},
-    "window": {
-        "height": 600,
-        "id": "FindTheFlame",
-        "title": "FindTheFlame",
-        "width": 800
-    }
+
+    "heroku-run-build-script": true
 }

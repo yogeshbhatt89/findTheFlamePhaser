@@ -151,40 +151,9 @@ export default class StageOneScene extends Phaser.Scene {
     // using keyboard arrows Creating  cursors
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    this.jumpSound = this.sound.add("jump");
-
-    // this.deathSound = this.sound.add("death");
-    // this.backgroundMusic = this.sound.add("backgroundMusic", 0.5, true);
-    // this.backgroundMusic.play();
+    this.jumpSound = this.sound.add("jump", { volume: 0.07 });
   }
 
-  // const backgroundMusic = this.sound.get("backgroundMusic");
-  // player.alive = false;
-  // }
-  // killPlayer(player) {
-  //   // if (this.player.alive) {
-  //   //   this.player.kill();
-  //   // }
-
-  //   const thisScene = this.scene.get("StageOneScene");
-  //   // this.player.destroy();
-  //   // if (player.alive === true) {
-  //   player.alive = false;
-  //   //   player.setActive(false);
-  //   //   player.setVisible(false);
-  //   setTimeout(function () {
-  //     // player.alive = true;
-  //     // player.setActive(true);
-  //     // player.setVisible(true);
-  //     // player.body = null;
-  //     // player.kill();
-  //     player.alive = true;
-  //     // backgroundMusic.stop();
-  //     thisScene.registry.destroy();
-  //     thisScene.events.off();
-  //     thisScene.scene.restart();
-  //   }, 100);
-  // }
   gotFlame() {
     this.scene.start("StageTwoScene");
   }

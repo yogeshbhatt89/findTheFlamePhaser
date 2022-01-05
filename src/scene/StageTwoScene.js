@@ -24,7 +24,6 @@ export default class StageTwoScene extends Phaser.Scene {
 
     this.load.audio("jump", "assets/audio/jump.wav");
     this.load.audio("death", "assets/audio/death.wav");
-   
   }
 
   createBorderVertical(x, y) {
@@ -153,10 +152,9 @@ export default class StageTwoScene extends Phaser.Scene {
     // using keyboard arrows Creating  cursors
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    this.jumpSound = this.sound.add("jump");
+    this.jumpSound = this.sound.add("jump", { volume: 0.07 });
 
-    this.deathSound = this.sound.add("death");
-
+    this.deathSound = this.sound.add("death", { volume: 0.07 });
   }
 
   killPlayer(player) {
