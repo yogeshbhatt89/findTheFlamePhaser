@@ -21,5 +21,5 @@ export default {
     },
   },
   scene: [StartScene, StageOneScene, StageTwoScene, StageThreeScene, WinScene],
-  // scene: [WinScene, StartScene],
+  // scene: [WinScene],
 };
